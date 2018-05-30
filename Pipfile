@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+
+[packages]
+social-auth-app-django = "*"
+django = "*"
+django-decouple = "*"
+"flake8" = "*"
+"autopep8" = "*"
+gunicorn = "*"
+whitenoise = "*"
+"psycopg2" = "*"
+
+[requires]
+python_version = "3.6"
