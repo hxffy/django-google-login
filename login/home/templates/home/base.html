@@ -3,28 +3,56 @@
 
 <head>
     <!-- Materialize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <!-- Material icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Django Login App</title>
+
 </head>
-<title>Django</title>
-{% if user.is_authenticated %}
-<div class="navbar-fixed">
-    <nav class="blue">
-        <div class="nav-wrapper container">
-            <a href="/" class="brand-logo center">Google App</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li>
-                    <a href="/account/logout">Log out</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
-{% endif %}
-<div class="container">
-    {% block content %} {% endblock %}
-</div>
+
+<body>
+    {% if user.is_authenticated %}
+    <div class="navbar-fixed">
+        <ul id="menu-dropdown" class="dropdown-content">
+            <li>
+                <a class="blue-text" href="{% url 'my-profile' %}">Profile</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a class="blue-text" href="/account/logout">Logout</a>
+            </li>
+        </ul>
+        <nav class="blue">
+            <div class="nav-wrapper container">
+                <a href="/" class="brand-logo center">Django Login App</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <a href="#!" data-target="menu-dropdown" class="dropdown-trigger">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </div>
+    {% endif %}
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+
+
+    <script type="text/JavaScript">
+            $(".dropdown-trigger").dropdown();
+        </script>
+
+</body>
 
 </html>

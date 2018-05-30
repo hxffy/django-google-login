@@ -1,11 +1,11 @@
-{% extends ‘home/base.html’ %} {% block content %}
+{% extends 'home/base.html' %} {% block content %}
 <div class="row">
     <div class="col s12 m6 offset-m3 ">
-        <H3>Hi {{ user.email }}!</H3>
+        <H3>Hi {{ user.first_name }}!</H3>
     </div>
 </div>
 <form method="post">
     {% csrf_token %} {{ user_form.as_p }} {{ profile_form.as_p }}
-    <button type="submit">Save changes</button>
+    <button type="submit" class="waves-effect blue btn">Save changes</button>
 </form>
 {% endblock %}
